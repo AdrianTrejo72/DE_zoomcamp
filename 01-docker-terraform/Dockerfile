@@ -12,7 +12,7 @@ ENV PATH="/app/.venv/bin:$PATH"
 
 # Copy dependency files first (better caching)
 COPY pyproject.toml .python-version uv.lock README.md ./
-COPY src/pipeline/ ./src/pipeline/
+COPY src/ ./src
 
 # Virtual environment using the uv.lock file to ensure reproducible builds
 RUN uv sync --locked
@@ -21,4 +21,4 @@ RUN uv sync --locked
 COPY ingest_data.py ingest_data.py 
 
 # Set entry point to run the ingestion script
-ENTRYPOINT [ "python", "ingest_data.py" ]
+#ENTRYPOINT [ "python", "ingest_data.py" ]
