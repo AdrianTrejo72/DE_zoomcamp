@@ -22,3 +22,20 @@ taxi_ingest:v001 \
 --year=2021 \
 --month=2 \
 --chunksize=100000
+
+# Comentarios de Copilot
+Para ejecutar la ingesta manualmente desde la carpeta del proyecto: 
+Ese comando reconstruye la imagen con tu Dockerfile y luego ejecuta 
+el script contra PostgreSQL dentro de la red Compose.
+
+
+docker build -t taxi_ingest:v001 .
+docker run --rm --network 01-docker-terraform_default taxi_ingest:v001 \
+  --pg-user=root \
+  --pg-password=root \
+  --pg-host=pgdatabase \
+  --pg-port=5432 \
+  --pg-db=ny_taxi \
+  --target-table=yellow_taxi_trips \
+  --year=2021 \
+  --month=2

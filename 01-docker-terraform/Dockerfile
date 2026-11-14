@@ -21,4 +21,4 @@ RUN uv sync --locked
 COPY ingest_data.py .
 
 # Set entry point to run the ingestion script
-ENTRYPOINT [ "uv", "run","python", "ingest_data.py" ]
+ENTRYPOINT ["uv", "run", "python", "ingest_data.py"]
